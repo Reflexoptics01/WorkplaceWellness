@@ -1,0 +1,408 @@
+:root {
+    /* Colors */
+    --primary-color: #0066cc;
+    --secondary-color: #0066cc;
+    --light-bg: #f8f9fa;
+    --dark-overlay: rgba(0, 0, 0, 0.7);
+    --whatsapp-green: #25d366;
+    --whatsapp-dark: #128c7e;
+    
+    /* Spacing */
+    --section-padding: 5rem;
+    --card-spacing: 1.5rem;
+    
+    /* Shadows */
+    --card-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    --hover-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    padding-top: 76px;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: calc(100vh - 76px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-overlay);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    animation: slideUp 1s ease-out;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+}
+
+.hero-image {
+    animation: fadeInRight 1s ease-out;
+    max-width: 80%;
+    margin: auto;
+}
+
+/* Service Cards */
+.service-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--hover-shadow);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+/* Feature Boxes */
+.feature-box {
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.feature-box:hover {
+    background: rgba(0,102,204,0.05);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Stats Section */
+.stat-box {
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-box .feature-icon {
+    font-size: 3rem;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-green);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+    background-color: var(--whatsapp-dark);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: var(--hover-shadow);
+    text-decoration: none;
+}
+
+/* Navigation Styles */
+.navbar-brand {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand .brand-text {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+.navbar-brand .domain-text {
+    color: var(--primary-color) !important;
+    opacity: 0.9;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+}
+
+footer a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+        max-width: 60%;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .stat-box {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Pricing Cards */
+.pricing-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--primary-color);
+}
+
+.pricing-value {
+    margin: 1.5rem 0;
+}
+
+.pricing-value .price {
+    color: var(--primary-color);
+    line-height: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.pricing-value .price .currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+}
+
+.pricing-value .price span.display-4 {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.pricing-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card ul {
+    flex-grow: 1;
+    margin-bottom: 2rem;
+}
+
+.pricing-card ul li {
+    padding: 0.75rem 0;
+    color: #444;
+    line-height: 1.4;
+}
+
+.pricing-card .btn-wrapper {
+    margin-top: auto;
+}
+
+.pricing-card .btn {
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pricing-card .badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+.fa-check-circle {
+    color: #28a745;
+}
+
+.fa-plus-circle {
+    color: var(--primary-color);
+}
+
+/* Additional Pricing Styles */
+.pricing-card s {
+    opacity: 0.7;
+}
+
+.pricing-card .list-unstyled li {
+    margin-bottom: 1rem;
+}
+
+.pricing-card .list-unstyled li:last-child {
+    margin-bottom: 0;
+}
+
+.pricing-card .list-unstyled li strong {
+    color: #333;
+}
+
+.bg-primary-subtle {
+    background-color: rgba(0,102,204,0.1);
+}
+
+.bg-warning-subtle {
+    background-color: rgba(255,193,7,0.1);
+}
+
+.text-warning {
+    color: #ffc107 !important;
+} 
