@@ -274,42 +274,207 @@ footer a:hover {
     to { opacity: 1; }
 }
 
-/* Responsive Design */
+/* Mobile Responsiveness Enhancements */
 @media (max-width: 768px) {
+    /* General Spacing */
+    body {
+        padding-top: 60px;
+    }
+
+    /* Typography */
+    h1.display-4 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+    }
+
+    /* Hero Section */
     .hero-section {
+        height: auto;
+        min-height: 100vh;
         text-align: center;
+    }
+
+    .hero-content {
+        padding: 2rem 0;
     }
 
     .hero-buttons {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        align-items: stretch;
     }
 
-    .hero-image {
-        margin-top: 2rem;
-        max-width: 60%;
+    .hero-buttons .btn {
+        width: 100%;
+        margin: 0 !important;
     }
 
+    /* Services Section */
+    .service-card {
+        margin-bottom: 1rem;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+    }
+
+    /* Stats Section */
+    .stat-box {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+
+    .stat-box .display-4 {
+        font-size: 2.5rem;
+    }
+
+    /* Pricing Cards */
+    .pricing-card {
+        margin-bottom: 2rem;
+    }
+
+    .pricing-value .price span.display-4 {
+        font-size: 2.5rem;
+    }
+
+    .pricing-card .btn {
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Form Elements */
+    .form-control, .form-select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.75rem;
+    }
+
+    /* Navigation */
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+        text-align: center;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    footer .text-md-end {
+        text-align: center !important;
+        margin-top: 1rem;
+    }
+
+    /* WhatsApp Float Button */
     .whatsapp-float {
         width: 50px;
         height: 50px;
         font-size: 25px;
-        bottom: 20px;
-        right: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 576px) {
+    /* Typography */
+    h1.display-4 {
+        font-size: 2rem;
     }
 
-    .stat-box {
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    /* Sections */
+    section {
+        padding: 3rem 0;
+    }
+
+    /* Cards */
+    .card {
         margin-bottom: 1rem;
     }
 
-    .navbar-logo {
-        height: 50px;
+    .card-body {
+        padding: 1.25rem;
     }
-    
-    .navbar-brand .brand-text,
-    .navbar-brand .domain-text {
-        font-size: 1.2rem;
+
+    /* Partners Grid */
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .partner-logo-container {
+        padding: 1rem;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Base Health Services */
+    .service-icon {
+        font-size: 1.75rem;
+    }
+
+    /* Pricing Value */
+    .pricing-value .price .currency {
+        font-size: 1.25rem;
+    }
+
+    .pricing-value .price span.display-4 {
+        font-size: 2.25rem;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 576px) and (orientation: landscape) {
+    .hero-section {
+        height: auto;
+        min-height: 120vh;
+    }
+
+    .hero-content {
+        padding: 4rem 0;
+    }
+}
+
+/* Tablet Devices */
+@media (min-width: 769px) and (max-width: 991px) {
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .pricing-card {
+        margin-bottom: 2rem;
+    }
+
+    .service-card {
+        margin-bottom: 1.5rem;
     }
 }
 
