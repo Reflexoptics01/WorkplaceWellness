@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - FreeHealthCamp.in</title>
+    <meta name="description" content="View our health camps in action. See how we bring healthcare services directly to workplaces across India.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        .gallery-preview {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .gallery-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f8f9fa;
+        }
+        .thumbnail-container {
+            position: relative;
+            padding: 0 50px;
+        }
+        .thumbnail-slider {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 10px 0;
+        }
+        .thumbnail-slider::-webkit-scrollbar {
+            display: none;
+        }
+        .thumbnail {
+            flex: 0 0 150px;
+            height: 100px;
+            cursor: pointer;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+        .thumbnail.active {
+            border: 3px solid var(--primary-color);
+        }
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .slider-arrow:hover {
+            background: rgba(0,0,0,0.8);
+        }
+        .slider-arrow.prev {
+            left: 0;
+        }
+        .slider-arrow.next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.svg" alt="FreeHealthCamp.in Logo" class="navbar-logo me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text">FreeHealthCamp</span><span class="domain-text">.in</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Header -->
+    <section class="py-5 bg-light mt-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold text-center mb-4">Our Health Camps Gallery</h1>
+            <p class="lead text-center mb-5">Experience our professional health camps through these captured moments</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Large Preview -->
+            <div class="gallery-preview mb-5">
+                <img src="images/camp image/IMG-20250217-WA0042.jpg" alt="Health Camp" id="previewImage">
+            </div>
+
+            <!-- Thumbnails Slider -->
+            <div class="thumbnail-container">
+                <button class="slider-arrow prev" onclick="slideLeft()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow next" onclick="slideRight()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="thumbnail-slider" id="thumbnailSlider">
+                    <div class="thumbnail active" onclick="updatePreview('images/camp image/IMG-20250217-WA0042.jpg', this)">
+                        <img src="images/camp image/IMG-20250217-WA0042.jpg" alt="Health Camp Setup">
+                    </div>
+                    <div class="thumbnail" onclick="updatePreview('images/camp image/IMG-20250217-WA0047.jpg', this)">
+                        <img src="images/camp image/IMG-20250217-WA0047.jpg" alt="Health Screening">
+                    </div>
+                    <div class="thumbnail" onclick="updatePreview('images/camp image/IMG-20250217-WA0048.jpg', this)">
+                        <img src="images/camp image/IMG-20250217-WA0048.jpg" alt="Medical Equipment">
+                    </div>
+                    <div class="thumbnail" onclick="updatePreview('images/camp image/IMG-20250217-WA0048(1).jpg', this)">
+                        <img src="images/camp image/IMG-20250217-WA0048(1).jpg" alt="Health Checkup">
+                    </div>
+                    <div class="thumbnail" onclick="updatePreview('images/camp image/IMG-20250217-WA0051.jpg', this)">
+                        <img src="images/camp image/IMG-20250217-WA0051.jpg" alt="Consultation">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+919980557575" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>FreeHealthCamp.in</h5>
+                    <p>Because Your Health Matters!</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="services.html" class="text-light">Services</a></li>
+                        <li><a href="gallery.html" class="text-light">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h5>Contact Us</h5>
+                    <p class="mb-0"><i class="fab fa-whatsapp me-2"></i>+91 99805 57575</p>
+                    <p class="mb-0">© 2024 FreeHealthCamp.in</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        function updatePreview(src, thumbnail) {
+            document.getElementById('previewImage').src = src;
+            // Update active state
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        function slideLeft() {
+            const slider = document.getElementById('thumbnailSlider');
+            slider.scrollLeft -= 200;
+        }
+
+        function slideRight() {
+            const slider = document.getElementById('thumbnailSlider');
+            slider.scrollLeft += 200;
+        }
+    </script>
+</body>
+</html> 
