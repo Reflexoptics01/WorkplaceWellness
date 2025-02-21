@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Contact - FreeHealthCamp.in</title>
+    <meta name="description" content="Affordable health screening packages for your workplace. Book your corporate health camp today.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <span class="text-secondary fw-bold">FreeHealthCamp</span><span class="text-secondary">.in</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/pricing">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Section -->
+    <section class="py-5 bg-light">
+        <div class="container mt-5">
+            <h1 class="text-center mb-5">Affordable Health Check-up Plans</h1>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="text-center mb-4">Health 1 Plan</h2>
+                            <div class="pricing-header text-center">
+                                <h3 class="display-4 fw-bold text-primary">₹999</h3>
+                                <p class="text-muted"><del>Market Price: ₹3,500</del></p>
+                            </div>
+                            <ul class="list-unstyled mt-4">
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Thyroid Profile (T3, T4, TSH)</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Lipid Profile</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Diabetes Tests</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Liver Function Test</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Kidney Function Test</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Complete Blood Count</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="text-center mb-4">Health 2 Plan</h2>
+                            <div class="pricing-header text-center">
+                                <h3 class="display-4 fw-bold text-primary">₹1,999</h3>
+                                <p class="text-muted"><del>Market Price: ₹5,000</del></p>
+                            </div>
+                            <ul class="list-unstyled mt-4">
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Everything in Health 1 Plan</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Vitamin D3</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Vitamin B12</li>
+                                <li class="mb-3"><i class="fas fa-plus text-primary me-2"></i>Advanced Health Assessment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-5" id="book-now">
+        <div class="container">
+            <h2 class="text-center mb-5">Book Your Health Camp</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="company" class="form-label">Company Name</label>
+                                    <input type="text" class="form-control" id="company" name="company" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+919740249554" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>FreeHealthCamp.in</h5>
+                    <p>Because Your Health Matters!</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>© 2024 FreeHealthCamp.in. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
