@@ -885,4 +885,254 @@ footer a:hover {
 .lb-nav a.lb-prev:hover,
 .lb-nav a.lb-next:hover {
     opacity: 1;
+<<<<<<< HEAD
+=======
+}
+
+/* Service Gallery */
+.service-gallery {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.gallery-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.gallery-overlay i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-count {
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.gallery-link:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.service-gallery img {
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-link:hover img {
+    transform: scale(1.05);
+}
+
+/* Lightbox Customization */
+.lb-outerContainer {
+    border-radius: 8px 8px 0 0;
+}
+
+.lb-dataContainer {
+    border-radius: 0 0 8px 8px;
+}
+
+.lb-data .lb-caption {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    padding: 10px 0;
+}
+
+.lb-data .lb-number {
+    font-size: 0.9rem;
+    color: #ddd;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    padding-bottom: 10px;
+}
+
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.lb-nav a.lb-prev:hover,
+.lb-nav a.lb-next:hover {
+    opacity: 1;
+}
+
+.lb-data .lb-close {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.lb-data .lb-close:hover {
+    opacity: 1;
+}
+
+/* Mobile Adjustments for Gallery */
+@media (max-width: 768px) {
+    .gallery-overlay i {
+        font-size: 1.5rem;
+    }
+
+    .gallery-count {
+        font-size: 0.8rem;
+    }
+
+    .service-gallery img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .service-gallery img {
+        height: 160px;
+    }
+}
+
+/* Clients Section */
+.clients-section {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+}
+
+.clients-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    width: fit-content;
+}
+
+.client-item {
+    flex: 0 0 250px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-logo {
+    max-width: 200px;
+    height: auto;
+    filter: grayscale(0%);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.client-item:hover .client-logo {
+    transform: scale(1.1);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 6));
+    }
+}
+
+/* Add hover pause effect */
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* Add gradient overlay for smooth edges */
+.carousel-container::before,
+.carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+}
+
+.carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, #fff, transparent);
+}
+
+.carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, #fff, transparent);
+}
+
+/* Mobile Responsiveness for Clients Section */
+@media (max-width: 768px) {
+    .client-item {
+        flex: 0 0 200px;
+    }
+    
+    .client-logo {
+        max-width: 150px;
+    }
+    
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-200px * 6));
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .client-item {
+        flex: 0 0 150px;
+    }
+    
+    .client-logo {
+        max-width: 120px;
+    }
+    
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-150px * 6));
+        }
+    }
+>>>>>>> 48a8075 (Initial commit from Cursor AI)
 } 
