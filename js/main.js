@@ -1,111 +1,27 @@
-<<<<<<< HEAD
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle form submission
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                timestamp: new Date().toLocaleString(),
-                name: document.getElementById('name').value,
-                organization: document.getElementById('organization').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                address: document.getElementById('address').value,
-                employees: document.getElementById('employees').value,
-                package: document.getElementById('package').value,
-                message: document.getElementById('message').value
-            };
-
-            try {
-                // Show loading state
-                const submitButton = bookingForm.querySelector('button[type="submit"]');
-                const originalButtonText = submitButton.innerHTML;
-                submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';
-                submitButton.disabled = true;
-
-                // Submit to Google Sheets
-                const params = new URLSearchParams();
-                for (const [key, value] of Object.entries(formData)) {
-                    params.append(key, value);
-                }
-
-                const response = await fetch('https://script.google.com/macros/s/AKfycbx_C0L6xaJFhW_ebYHXRRIGKMzeUSyy3_qy5ZLPfk1Pm9xf9PB0dvDxF_XB2Yh0tBOr/exec?' + params.toString(), {
-                    method: 'GET',
-                    mode: 'no-cors',
-                    redirect: 'follow'
-                });
-
-                // Wait a moment to ensure the submission completes
-                await new Promise(resolve => setTimeout(resolve, 2000));
-
-                // Reset form and show success message
-                bookingForm.reset();
-                alert('Thank you for your booking! We will contact you shortly.');
-
-            } catch (error) {
-                console.error('Error:', error);
-                alert('There was an error submitting your booking. Please try again.');
-            } finally {
-                // Reset button state
-                submitButton.innerHTML = originalButtonText;
-                submitButton.disabled = false;
-            }
-        });
-    }
-
-    // Handle package selection from pricing cards
-    const packageButtons = document.querySelectorAll('.card .btn');
-    packageButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const packageType = this.closest('.card').querySelector('h2').textContent;
-            const packageSelect = document.getElementById('package');
-            if (packageSelect) {
-                // Map the package names to the select values
-                const packageMap = {
-                    'Health 1 Plan': 'health1',
-                    'Health 2 Plan': 'health2'
-                };
-                packageSelect.value = packageMap[packageType] || '';
-            }
-        });
-    });
-=======
+// Wait for DOM content to be loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lightbox
     lightbox.option({
-        'resizeDuration': 200,
+        'resizeDuration': 300,
         'wrapAround': true,
-        'showImageNumberLabel': false,
-        'fadeDuration': 200,
-        'imageFadeDuration': 200,
-        'albumLabel': "Image %1 of %2",
+        'showImageNumberLabel': true,
+        'fadeDuration': 300,
+        'imageFadeDuration': 300,
+        'albumLabel': 'Image %1 of %2',
         'disableScrolling': true,
         'positionFromTop': 100,
         'maxWidth': 1200,
         'maxHeight': 800
     });
 
-    // Add click event listeners to gallery items
-    document.querySelectorAll('.gallery-link').forEach(function(element) {
-        element.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lightboxAnchor = this;
-            lightbox.start(lightboxAnchor);
-        });
-    });
-
     // Handle form submission
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
-        bookingForm.addEventListener('submit', async function(e) {
+        bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
             const formData = {
-                timestamp: new Date().toLocaleString(),
                 name: document.getElementById('name').value,
                 organization: document.getElementById('organization').value,
                 email: document.getElementById('email').value,
@@ -115,41 +31,173 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: document.getElementById('message').value
             };
 
-            try {
-                // Show loading state
-                const submitButton = bookingForm.querySelector('button[type="submit"]');
-                const originalButtonText = submitButton.innerHTML;
-                submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';
-                submitButton.disabled = true;
-
-                // Submit to Google Sheets
-                const params = new URLSearchParams();
-                for (const [key, value] of Object.entries(formData)) {
-                    params.append(key, value);
-                }
-
-                const response = await fetch('https://script.google.com/macros/s/AKfycbx_C0L6xaJFhW_ebYHXRRIGKMzeUSyy3_qy5ZLPfk1Pm9xf9PB0dvDxF_XB2Yh0tBOr/exec?' + params.toString(), {
-                    method: 'GET',
-                    mode: 'no-cors',
-                    redirect: 'follow'
-                });
-
-                // Wait a moment to ensure the submission completes
-                await new Promise(resolve => setTimeout(resolve, 2000));
-
-                // Reset form and show success message
-                bookingForm.reset();
-                alert('Thank you for your booking! We will contact you shortly.');
-
-            } catch (error) {
-                console.error('Error:', error);
-                alert('There was an error submitting your booking. Please try again.');
-            } finally {
-                // Reset button state
-                submitButton.innerHTML = originalButtonText;
-                submitButton.disabled = false;
-            }
+            // Here you would typically send this data to your server
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            alert('Thank you for your booking request! We will contact you shortly.');
+            
+            // Reset form
+            bookingForm.reset();
         });
     }
->>>>>>> 48a8075 (Initial commit from Cursor AI)
-}); 
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add animation class to elements when they become visible
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.service-card, .feature-box, .stat-box, .testimonial-card');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            const isVisible = (elementTop >= 0) && (elementBottom <= window.innerHeight);
+            
+            if (isVisible) {
+                element.classList.add('animate');
+            }
+        });
+    };
+
+    // Initial check for elements in view
+    animateOnScroll();
+
+    // Check for elements in view on scroll
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Add keyboard navigation for gallery
+    document.addEventListener('keydown', function(e) {
+        if (document.querySelector('.gallery-track')) {
+            if (e.key === 'ArrowRight') {
+                nextImage();
+            } else if (e.key === 'ArrowLeft') {
+                prevImage();
+            }
+        }
+    });
+});
+
+// Gallery Functions
+function updateMainImage(element, imageSrc) {
+    const mainImage = document.getElementById('mainImage');
+    if (mainImage) {
+        mainImage.src = imageSrc;
+        
+        // Remove active class from all gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Add active class to clicked item
+        element.classList.add('active');
+    }
+}
+
+function nextImage() {
+    const items = document.querySelectorAll('.gallery-item');
+    const activeItem = document.querySelector('.gallery-item.active');
+    let nextItem;
+
+    if (activeItem) {
+        const currentIndex = Array.from(items).indexOf(activeItem);
+        nextItem = items[currentIndex + 1] || items[0];
+    } else {
+        nextItem = items[0];
+    }
+
+    if (nextItem) {
+        const img = nextItem.querySelector('img');
+        if (img) {
+            updateMainImage(nextItem, img.src);
+        }
+    }
+}
+
+function prevImage() {
+    const items = document.querySelectorAll('.gallery-item');
+    const activeItem = document.querySelector('.gallery-item.active');
+    let prevItem;
+
+    if (activeItem) {
+        const currentIndex = Array.from(items).indexOf(activeItem);
+        prevItem = items[currentIndex - 1] || items[items.length - 1];
+    } else {
+        prevItem = items[items.length - 1];
+    }
+
+    if (prevItem) {
+        const img = prevItem.querySelector('img');
+        if (img) {
+            updateMainImage(prevItem, img.src);
+        }
+    }
+}
+
+// Function to add new images to gallery
+function addNewImagesToGallery(newImages) {
+    const galleryTrack = document.querySelector('.gallery-track');
+    const hiddenLightboxLinks = document.querySelector('.d-none');
+    
+    if (!galleryTrack || !hiddenLightboxLinks) return;
+
+    // Add new images to gallery track
+    newImages.forEach(imagePath => {
+        // Create gallery item
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.onclick = () => updateMainImage(div, imagePath);
+        div.innerHTML = `
+            <img src="${imagePath}" alt="Health Camp" class="img-fluid rounded">
+        `;
+        galleryTrack.appendChild(div);
+
+        // Create duplicate for infinite scroll
+        const divDuplicate = div.cloneNode(true);
+        divDuplicate.onclick = () => updateMainImage(divDuplicate, imagePath);
+        galleryTrack.appendChild(divDuplicate);
+
+        // Add lightbox link
+        const link = document.createElement('a');
+        link.href = imagePath;
+        link.setAttribute('data-lightbox', 'camp-gallery');
+        hiddenLightboxLinks.appendChild(link);
+    });
+}
+
+// Function to check for new images
+async function checkForNewImages() {
+    try {
+        const response = await fetch('/api/gallery-images');
+        const images = await response.json();
+        
+        // Get current images
+        const currentImages = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.src);
+        const uniqueCurrentImages = [...new Set(currentImages)];
+        
+        // Find new images
+        const newImages = images.filter(imagePath => !uniqueCurrentImages.includes(imagePath));
+        
+        // Add new images if any found
+        if (newImages.length > 0) {
+            addNewImagesToGallery(newImages);
+        }
+    } catch (error) {
+        console.error('Error checking for new images:', error);
+    }
+}
+
+// Check for new images periodically (every 5 minutes)
+if (document.querySelector('.gallery-track')) {
+    setInterval(checkForNewImages, 300000);
+}
